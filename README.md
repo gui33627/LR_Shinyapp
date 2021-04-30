@@ -19,7 +19,7 @@ Please run global.R
 | File/Folder Name | Description                                       |
 |------------------|---------------------------------------------------|
 | R                | Functions                                         |
-| server           | Scripts that build server                         |
+| server           | Scripts that build the server                     |
 | UI               | Scripts that build the UI                         |
 | global.R         | Code that is run prior to launching the Shiny app |
 | server.R         | Main server framework                             |
