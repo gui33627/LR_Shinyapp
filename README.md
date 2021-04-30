@@ -1,12 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Linear regression Shiny App
+# Linear Regression Shiny App
 
 <!-- badges: start -->
-
-[![Generic
-badge](https://img.shields.io/badge/Open%20Source-Yes-green.svg)](https://github.com/gui33627/LR_Shinyapp)
 <!-- badges: end -->
 
 The Shiny App is an interactive educational tool that includes learning
@@ -17,7 +14,7 @@ regression.
 
 Please run global.R
 
-### Folder structure
+## Folder structure
 
 | File/Folder Name | Description                                       |
 |------------------|---------------------------------------------------|
