@@ -10,7 +10,19 @@ output: github_document
 [![Generic badge](https://img.shields.io/badge/Open Source-Yes-green.svg)](https://github.com/gui33627/LR_Shinyapp)
 <!-- badges: end -->
 
-The goal of this repository is to create an interactive Shiny App that can let users ... 
+The Shiny App is an interactive educational tool that includes learning and testing mode for beginning learners to learn concepts of linear regression.  
 
 ## Usage
+
 Please run global.R
+
+### Folder structure
+
+File/Folder Name  | Description
+------------- | -------------
+R  | Functions
+server  | Scripts that build server
+UI | Scripts that build the UI
+global.R | Code that is run prior to launching the Shiny app
+server.R  | Main server framework
+UI.R  | Main UI framework
