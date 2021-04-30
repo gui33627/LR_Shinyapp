@@ -19,9 +19,6 @@ Please run global.R
 
 ### Folder structure
 
--   R \#
--   server \#
-
 | File/Folder Name | Description                                       |
 |------------------|---------------------------------------------------|
 | R                | Functions                                         |
@@ -30,5 +27,3 @@ Please run global.R
 | global.R         | Code that is run prior to launching the Shiny app |
 | server.R         | Main server framework                             |
 | UI.R             | Main UI framework                                 |
-| README.md        |                                                   |
-| README.rmd       |                                                   |
