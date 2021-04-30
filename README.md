@@ -10,7 +10,7 @@ badge](https://img.shields.io/badge/Open%20Source-Yes-green.svg)](https://github
 <!-- badges: end -->
 
 The Shiny App is an interactive educational tool that includes learning
-and testing mode for beginning learners to learn concepts of linear
+and testing modes for beginning learners to learn concepts of linear
 regression.
 
 ## Usage
@@ -26,4 +26,4 @@ Please run global.R
 | UI               | Scripts that build the UI                         |
 | global.R         | Code that is run prior to launching the Shiny app |
 | server.R         | Main server framework                             |
-| UI.R             | Main UI framework                                 |
+| ui.R             | Main UI framework                                 |
