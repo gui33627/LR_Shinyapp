@@ -90,11 +90,11 @@ DrawPlotUI <- function(id){
                                                             choices = c("Draw lines" = "draw_line_assess_continuous_p_binary", 
                                                                         "Draw points" = "draw_points_assess_continuous_p_binary"))),
                                conditionalPanel("input.specify_model_type_draw === 'continuous+binary_specify_draw' && input.specify_test_mode === 'coef_stddev' && input.draw_type_assess_continuous_p_binary === 'draw_line_assess_continuous_p_binary'", ns = ns,
-                                                p("Based on the coefficients provided below, click two points for each group in the plot area to determine two lines that you think is best describing the regression lines.
-                          You can use the 'Next one!' button to go to the next question.")),
+                                                p("Based on the coefficients provided below, click two points to determine a line for one group in the plot area that you think is best describing its regression line. 
+                                                Then move the line for the second group to the position that you think is appropriate by changing the value in the box below and submit your lines by 'Submit lines' button. You can use the 'Next one!' button to go to the next question.")),
                                conditionalPanel("input.specify_model_type_draw === 'continuous+binary_specify_draw' && input.specify_test_mode === 'coef_stddev' && input.draw_type_assess_continuous_p_binary === 'draw_points_assess_continuous_p_binary'", ns = ns,
                                                 p("Based on the coefficients, residual standard deviation and sample size provided below, 
-                        click on the plot area the specified number of points for one group and move the points for the other group that you think is most consistent with the parameters.
+                        click on the plot area the specified number of points for one group and move the points for the other group to the position that you think is most consistent with the parameters by changing the value in the box below.
                         You can use the 'Next one!' button to go to the next question.")),
                                conditionalPanel("input.specify_model_type_draw === 'continuous+binary_specify_draw' && input.specify_test_mode === 'coef_stddev'", ns = ns,
                                                 textOutput(ns("intercept_assess_draw_cpb")), textOutput(ns("coefficient_assess_draw_cpb_b1")), textOutput(ns("coefficient_assess_draw_cpb_b2"))),
@@ -117,7 +117,8 @@ DrawPlotUI <- function(id){
                                
                                
                                conditionalPanel("input.specify_model_type_draw === 'continuous+binary_specify_draw' && input.specify_test_mode === 'best_fit'", ns = ns,
-                                                p("Based on the points provided below, click two points to determine a line for one group in the plot area that you think is best describing its regression line. Then drag the line for the second group to the position that you think is appropriate and submit your lines by 'Submit lines' button.
+                                                p("Based on the points provided below, click two points to determine a line for one group in the plot area that you think is best describing its regression line. 
+                                                Then move the line for the second group to the position that you think is appropriate by changing the value in the box below and submit your lines by 'Submit lines' button.
                           You can use the 'Next one!' button to go to the next question."),
                                                 selectInput(inputId = ns("which_group_cpb_bestfit"), label = "Choose Which Group to Create Line", 
                                                             choices = c("Group 0" = "group_0_cpb_bestfit", "Group 1" = "group_1_cpb_bestfit")),
