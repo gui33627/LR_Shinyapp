@@ -8,8 +8,8 @@ DrawPlotUI <- function(id){
            tabsetPanel(
              tabPanel("Introdution", tags$div(
                style="margin: 50px 50px;",
-               p("In this module, you will be assessed how well you draw a regression line or observations in consistent with the provided coefficients, or residual standard deviation and  
-                             sample size."))),
+               p("In this module, you will be assessed on how well you draw a regression line(s) or observations in consistent with the provided coefficients, or residual standard deviation and  
+                             sample size, and on how well you draw the best fit line(s) given observations."))),
              tabPanel("Assessment", fluidPage(
                dropdown(
                  

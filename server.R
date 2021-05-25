@@ -12,7 +12,7 @@ server <- function(input, output){
   
   ################ tabPanel3 - "Drawing Plot" ####################
   
-  callModule(DrawPlot, "modulethree", input$inputName)
+  callModule(DrawPlot, "modulethree")
   
   ################### tabPanel4 - "Guessing" #####################
 

@@ -1,5 +1,5 @@
 
-DrawPlot <- function(input, output, session, plotlyEvent){
+DrawPlot <- function(input, output, session){
   
   ############### coef and sigma ###################
   ############### continuous ################# 
@@ -272,6 +272,7 @@ DrawPlot <- function(input, output, session, plotlyEvent){
     data_current <- clean_to_dataframe(drawline_gr0_cpb$data)
     data_current <- clean_specified_size(data_current, 2)
     data_other <- data.frame(x= data_current$x, y = data_current$y + input$move_cpb_line)
+    data_other <- clean_shorten_line(first = data_current, second = data_other, offset = input$move_cpb_line)
     plot_module3_cpb_line(data_current = data_current, group0 = TRUE, group1 = FALSE, done0 = TRUE, done1 = FALSE, formula = formula, data_other = data_other)
   })
   
@@ -281,6 +282,7 @@ DrawPlot <- function(input, output, session, plotlyEvent){
     data_current <- clean_to_dataframe(drawline_gr1_cpb$data)
     data_current <- clean_specified_size(data_current, 2)
     data_other <- data.frame(x= data_current$x, y = data_current$y + input$move_cpb_line)
+    data_other <- clean_shorten_line(first = data_current, second = data_other, offset = input$move_cpb_line)
     plot_module3_cpb_line(data_current = data_current, group0 = FALSE, group1 = TRUE, done0 = FALSE, done1 = TRUE, formula = formula, data_other = data_other)
   })
   
@@ -358,6 +360,7 @@ DrawPlot <- function(input, output, session, plotlyEvent){
                               c(round(intercept,2), round(slope,2), round(input$move_cpb_line,2)), coef = TRUE)
           output$assessment_result_cpb <- renderTable({table})
           data_other <- data.frame(x= data_current$x, y = data_current$y + input$move_cpb_line)
+          data_other <- clean_shorten_line(first = data_current, second = data_other, offset = input$move_cpb_line)
           plot_module3_cpb_line(data_current = data_current, group0 = TRUE, group1 = TRUE, done0 = TRUE, done1 = FALSE, formula = formula,
                                 intercept_assess_draw_cpb = intercept_assess_draw_cpb$data, b1_assess_draw_cpb = b1_assess_draw_cpb$data, b2_assess_draw_cpb = b2_assess_draw_cpb$data, data_other = data_other)
         }else{
@@ -373,6 +376,7 @@ DrawPlot <- function(input, output, session, plotlyEvent){
                               c(round(intercept,2), round(slope,2), round(-input$move_cpb_line,2)), coef = TRUE)
           output$assessment_result_cpb <- renderTable({table})
           data_other <- data.frame(x= data_current$x, y = data_current$y + input$move_cpb_line)
+          data_other <- clean_shorten_line(first = data_current, second = data_other, offset = input$move_cpb_line)
           plot_module3_cpb_line(data_current = data_current, group0 = TRUE, group1 = TRUE, done0 = FALSE, done1 = TRUE, formula = formula,
                                 intercept_assess_draw_cpb = intercept_assess_draw_cpb$data, b1_assess_draw_cpb = b1_assess_draw_cpb$data, b2_assess_draw_cpb = b2_assess_draw_cpb$data, data_other = data_other)
         }else{
@@ -916,6 +920,7 @@ DrawPlot <- function(input, output, session, plotlyEvent){
     data_0 <- clean_to_dataframe(drawline_gr0_cpb_bestfit$data)
     data_0 <- clean_specified_size(data_0, 2)
     data_1 <- data.frame(x = data_0$x, y = data_0$y + input$move_cpb_line_bestfit)
+    data_1 <- clean_shorten_line(first = data_0, second = data_1, offset = input$move_cpb_line_bestfit)
     plot_module3_bestfit_cpb(group0 = TRUE, group1 = FALSE, data_0 = data_0, data_1 = data_1, data_gr0 = data_gr0, data_gr1 = data_gr1, done0 = TRUE, done1 = FALSE, formula = formula)
   })
   
@@ -928,6 +933,7 @@ DrawPlot <- function(input, output, session, plotlyEvent){
     data_1 <- clean_to_dataframe(drawline_gr1_cpb_bestfit$data)
     data_1 <- clean_specified_size(data_1, 2)
     data_0 <- data.frame(x = data_1$x, y = data_1$y + input$move_cpb_line_bestfit)
+    data_0 <- clean_shorten_line(first = data_1, second = data_0, offset = input$move_cpb_line_bestfit)
     plot_module3_bestfit_cpb(group0 = FALSE, group1 = TRUE, data_0 = data_0, data_1 = data_1, data_gr0 = data_gr0, data_gr1 = data_gr1, done0 = FALSE, done1 = TRUE, formula = formula)
   })
   
@@ -944,6 +950,7 @@ DrawPlot <- function(input, output, session, plotlyEvent){
         data_0 <- clean_to_dataframe(drawline_gr0_cpb_bestfit$data)
         data_0 <- clean_specified_size(data_0, 2)
         data_1 <- data.frame(x = data_0$x, y = data_0$y + input$move_cpb_line_bestfit)
+        data_1 <- clean_shorten_line(first = data_0, second = data_1, offset = input$move_cpb_line_bestfit)
         plot_module3_bestfit_cpb(group0 = TRUE, group1 = TRUE, data_0 = data_0, data_1 = data_1, data_gr0 = data_gr0, data_gr1 = data_gr1, 
                                  done0 = TRUE, done1 = TRUE, b0 = coefficient_assess_guess_cpb_bestfit$b0, b1 = coefficient_assess_guess_cpb_bestfit$b1, b2 = coefficient_assess_guess_cpb_bestfit$b2, formula = formula)
       }
@@ -954,6 +961,7 @@ DrawPlot <- function(input, output, session, plotlyEvent){
         data_1 <- clean_to_dataframe(drawline_gr1_cpb_bestfit$data)
         data_1 <- clean_specified_size(data_1, 2)
         data_0 <- data.frame(x = data_1$x, y = data_1$y + input$move_cpb_line_bestfit)
+        data_0 <- clean_shorten_line(first = data_1, second = data_0, offset = input$move_cpb_line_bestfit)
         plot_module3_bestfit_cpb(group0 = TRUE, group1 = TRUE, data_0 = data_0, data_1 = data_1, data_gr0 = data_gr0, data_gr1 = data_gr1, 
                                  done0 = TRUE, done1 = TRUE, b0 = coefficient_assess_guess_cpb_bestfit$b0, b1 = coefficient_assess_guess_cpb_bestfit$b1, b2 = coefficient_assess_guess_cpb_bestfit$b2, formula = formula)
       }
