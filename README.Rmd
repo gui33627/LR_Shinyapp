@@ -11,6 +11,8 @@ output: github_document
 
 The Shiny App is an interactive educational tool that includes learning and testing modes for beginning learners to learn concepts of linear regression.  
 
+You can see a live version at https://apsta.shinyapps.io/Shinyapp_Reg/
+
 ## Usage
 
 Please run global.R
