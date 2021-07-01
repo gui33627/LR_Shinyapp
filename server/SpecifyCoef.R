@@ -114,16 +114,23 @@ SpecifyCoef <- function(input, output, session){
   
   output$result_plot <- renderPlot({
     if(input$model_type == "continuous"){
+      req(input$select_b0)
+      req(input$select_b1)
       data <-  paste0("y = ", input$select_b0, " + ", input$select_b1, "x + e, ", "e~N(0, ",input$epsilon_error,"^2)")
       output$formula <- renderText(data)
       final_plot <- ggplot() +
         annotate("text",x=-Inf,y=Inf,hjust=-0.15,vjust=1.7,label=as.character(data), fontface = "italic", size = 6)
     }else if(input$model_type == "binary"){
+      req(input$select_b0)
+      req(input$select_b1D)
       data <-  paste0("y = ", input$select_b0, " + ", input$select_b1D, "D + e, ", "e~N(0, ",input$epsilon_error,"^2)")
       output$formula <- renderText(data)
       final_plot <- ggplot() +
         annotate("text",x=-Inf,y=Inf,hjust=-0.15,vjust=1.7,label=as.character(data), fontface = "italic", size = 6)
     }else if(input$model_type == "continuous+binary"){
+      req(input$select_b0)
+      req(input$select_b1p)
+      req(input$select_b2p)
       data <-  paste0("y = ", input$select_b0, " + ", input$select_b1p, "x + ",input$select_b2p, "D + e, ", "e~N(0, ",input$epsilon_error,"^2)")
       output$formula <- renderText(data)
       output$another_explain2 <- renderText(paste0("y = ", input$select_b0, " + ", input$select_b1p, "x + e"))
@@ -131,6 +138,10 @@ SpecifyCoef <- function(input, output, session){
       final_plot <- ggplot() +
         annotate("text",x=-Inf,y=Inf,hjust=-0.15,vjust=1.7,label=as.character(data), fontface = "italic", size = 6)
     }else{
+      req(input$select_b0)
+      req(input$select_b1m)
+      req(input$select_b2m)
+      req(input$select_b3m)
       data <-  paste0("y = ", input$select_b0, " + ", input$select_b1m, "x + ",input$select_b2m, "D + ", input$select_b3m, "x*D + e, e~N(0, ",input$epsilon_error,"^2)")
       output$formula <- renderText(data)
       output$another_explain2 <- renderText(paste0("y = ", input$select_b0, " + ", input$select_b1m, "x + e"))
